@@ -30,4 +30,26 @@ function append(arr, item) {
      var a = arr.slice(0);
      a.push(item);
      return a;
- }
+
+//6、删除数组 arr 最后一个元素。不要直接修改数组 arr，结果返回新的数组
+function truncate(arr) {
+  return arr.slice(0,arr.length-1);
+}
+//7、在数组 arr 开头添加元素 item。不要直接修改数组 arr，结果返回新的数组 
+function prepend(arr, item) {
+    return [item].concat(arr);   
+}
+//8、删除数组 arr 第一个元素。不要直接修改数组 arr，结果返回新的数组 
+function curtail(arr) {
+  return arr.slice(1);
+}
+//9、合并数组 arr1 和数组 arr2。不要直接修改数组 arr，结果返回新的数组 
+function concat(arr1, arr2) {
+return arr1.concat(arr2)
+}
+//10、在数组 arr 的 index 处添加元素 item。不要直接修改数组 arr，结果返回新的数组
+function insert(arr, item, index) {
+ var result = arr.slice(0);
+    result.splice(index,0,item);
+    return result;
+}
