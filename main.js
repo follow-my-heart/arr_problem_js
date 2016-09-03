@@ -30,7 +30,7 @@ function append(arr, item) {
      var a = arr.slice(0);
      a.push(item);
      return a;
-
+}
 //6、删除数组 arr 最后一个元素。不要直接修改数组 arr，结果返回新的数组
 function truncate(arr) {
   return arr.slice(0,arr.length-1);
