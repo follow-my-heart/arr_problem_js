@@ -53,3 +53,50 @@ function insert(arr, item, index) {
     result.splice(index,0,item);
     return result;
 }
+//11、统计数组 arr 中值等于 item 的元素出现的次数 
+function count(arr, item) {
+     var count = 0;
+     arr.forEach(function(e){
+         e === item ? count++ : 0;
+     });
+     return count;
+ }
+//12、找出数组 arr 中重复出现过的元素
+function duplicates(arr) {
+    return arr.sort().filter(function(v,i,arr){
+        return v!==arr[i-1]&&v===arr[i+1];
+    });
+}
+//13、为数组 arr 中的每个元素求二次方。不要直接修改数组 arr，结果返回新的数组
+function square(arr) {
+    return arr.map(function(item,index,array){
+        return item*item;
+    })
+}
+
+//14、在数组 arr 中，查找值与 item 相等的元素出现的所有位置
+function findAllOccurrences(arr, target) {
+    var posArr = [];
+    for(var i in arr){
+        if(target===arr[i]){
+            posArr.push(i);
+        }
+    }  return posArr;
+}
+//15、实现一个打点计时器， 1、从 start 到 end（包含 start 和 end），每隔 100 毫秒 console.log 一个数字，每次数字增幅为 1         2、返回的对象中需要包含一个 cancel 方法，用于停止定时操作 3、第一个数需要立即输出
+function count(start, end) {
+  //立即输出第一个值
+  console.log(start++);
+     var timer = setInterval(function(){
+         if(start <= end){
+             console.log(start++);
+         }else{
+             clearInterval(timer);
+         }
+     },100);
+     return {
+         cancel : function(){
+             clearInterval(timer);
+         }
+     };
+ }
