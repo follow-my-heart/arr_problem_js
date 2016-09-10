@@ -100,3 +100,45 @@ function count(start, end) {
          }
      };
  }
+//16、将数组 arr 中的元素作为调用函数 fn 的参数
+function argsAsArray(fn, arr) {
+  return fn.apply(this, arr);
+ }
+//17、将函数 fn 的执行上下文改为 obj 对象
+function speak(fn, obj) {
+  return fn.apply(obj, obj);
+}
+//18、实现函数 functionFunction，调用之后满足如下条件：
+//1、返回值为一个函数 f
+//2、调用返回的函数 f，返回值为按照调用顺序的参数拼接，拼接字符为英文逗号加一个空格，即 ', '
+//3、所有函数的参数数量为 1，且均为 String 类型 
+function functionFunction(str) {
+  var f = function(s){
+         return str+", "+s;
+     }
+     return f;
+ }
+
+//19、实现函数 makeClosures，调用之后满足如下条件：（闭包）
+//1、返回一个函数数组 result，长度与 arr 相同
+//2、运行 result 中第 i 个函数，即 result[i]()，结果与 fn(arr[i]) 相同 
+function makeClosures(arr, fn) {
+  var result = [];
+     arr.forEach(function(e){
+         result.push(function(num){
+             return function(){
+                 return fn(num);
+             };
+         }(e));
+     });
+     return result;
+ }
+//20、已知函数 fn 执行需要 3 个参数。请实现函数 partial，调用之后满足如下条件：
+//1、返回一个函数 result，该函数接受一个参数
+//2、执行 result(str3) ，返回的结果与 fn(str1, str2, str3) 一致 
+function partial(fn, str1, str2) {
+  var result = function(str3){
+         return fn.call(this, str1, str2, str3);
+     }
+     return result;
+ }
